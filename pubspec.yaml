@@ -38,6 +38,10 @@ dependencies:
   bloc: ^8.1.1
   shared_preferences: ^2.1.0
   equatable: ^2.0.5
+  firebase_core: ^2.10.0
+  firebase_auth: ^4.4.2
+  cloud_firestore: ^4.5.2
+  flutter_fortune_wheel: ^1.2.0
 
 dev_dependencies:
   flutter_test:
