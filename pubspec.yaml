@@ -42,6 +42,7 @@ dependencies:
   firebase_auth: ^4.4.2
   cloud_firestore: ^4.5.2
   flutter_fortune_wheel: ^1.2.0
+  flutter_bloc: ^8.1.2
 
 dev_dependencies:
   flutter_test:
