@@ -22,3 +22,11 @@ class LoginButtonPressed extends LoginEvent {
 class LogoutButtonPressed extends LoginEvent {
   const LogoutButtonPressed();
 }
+
+class RememberMeButtonChecked extends LoginEvent {
+  final bool isChecked;
+  const RememberMeButtonChecked({required this.isChecked});
+
+  @override
+  List<Object?> get props => [isChecked]; 
+}

@@ -8,10 +8,11 @@ abstract class SignupEvent extends Equatable {
 }
 
 class SignupButtonPressed extends SignupEvent {
-  final String password;
   final String email;
+  final String password;
+  final String confirmPassword;
 
-  const SignupButtonPressed({required this.password, required this.email});
+  const SignupButtonPressed({required this.email, required this.password, required this.confirmPassword});
 
   @override
   List<Object> get props => [password, email];

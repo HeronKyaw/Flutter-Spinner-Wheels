@@ -16,12 +16,17 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
   }
 
   FutureOr<void> _signupButtonPressed(SignupButtonPressed event, Emitter<SignupState> emit) async {
-    emit(const PasswordValidate());
     try {
-      if (state is PasswordValidate) {
-        await _spinnerWheelRepository.signUp(event.email, event.password);
+      if (event.password == event.confirmPassword) {
+        emit(const PasswordValidate());
+
+        if (state is PasswordValidate) {
+          await _spinnerWheelRepository.signUp(event.email, event.password);
+        } else {
+          emit(const SignupFailure('Password does not match.'));
+        }
       } else {
-        emit(const SignupFailure('Password does not match.'));
+        emit(const PasswordValidateFailure("Password does not match."));
       }
     } catch (error){
       emit(SignupFailure('Error: $error'));

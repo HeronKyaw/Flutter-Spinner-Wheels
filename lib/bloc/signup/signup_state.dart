@@ -25,3 +25,12 @@ class SignupFailure extends SignupState {
 class PasswordValidate extends SignupState {
   const PasswordValidate();
 }
+
+class PasswordValidateFailure extends SignupState {
+  final String error;
+
+  const PasswordValidateFailure(this.error);
+
+  @override
+  List<Object> get props => [error];
+}

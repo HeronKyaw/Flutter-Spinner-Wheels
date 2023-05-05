@@ -1,9 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:spinner_wheel/bloc/login/login_bloc.dart';
 import 'package:spinner_wheel/data/repositories/spinner_wheels_repository.dart';
-import 'package:spinner_wheel/screens/login/bloc/login_bloc.dart';
-import 'package:spinner_wheel/screens/login/views/login_page.dart';
+import 'package:spinner_wheel/screens/login_page.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();

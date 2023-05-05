@@ -32,5 +32,12 @@ class LogoutFailure extends LoginState {
 
   @override
   List<Object?> get props => [error];
+}
 
+class CheckedRememberMe extends LoginState {
+  final bool isChecked;
+  const CheckedRememberMe(this.isChecked);
+
+  @override
+  List<Object?> get props => [isChecked];
 }
