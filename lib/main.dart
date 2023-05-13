@@ -1,13 +1,16 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:spinner_wheel/bloc/login/login_bloc.dart';
 import 'package:spinner_wheel/data/repositories/spinner_wheels_repository.dart';
-import 'package:spinner_wheel/screens/login_page.dart';
+import 'package:spinner_wheel/firebase_options.dart';
+import 'package:spinner_wheel/modules/login/login_bloc/login_bloc.dart';
+import 'package:spinner_wheel/modules/login/screen/login_page.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 

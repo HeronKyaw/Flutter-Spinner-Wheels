@@ -24,12 +24,12 @@ class DefaultFirebaseOptions {
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
-        return android;
-      case TargetPlatform.iOS:
         throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
+          'DefaultFirebaseOptions have not been configured for android - '
           'you can reconfigure this by running the FlutterFire CLI again.',
         );
+      case TargetPlatform.iOS:
+        return ios;
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -52,11 +52,13 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDSSmdAUnCqdqO1dHfbnoxVgPbwl2WbcdI',
-    appId: '1:357598369090:android:378076b3814f52b5dda4db',
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyDxjhDJg6LXyupk_KOpClYRU09qNHjFVSA',
+    appId: '1:357598369090:ios:07f5c22becc05eb4dda4db',
     messagingSenderId: '357598369090',
     projectId: 'flutter-spinner-wheels',
     storageBucket: 'flutter-spinner-wheels.appspot.com',
+    iosClientId: '357598369090-28r3grbqc85tupa4ostonle7ql4g15hc.apps.googleusercontent.com',
+    iosBundleId: 'com.example.spinnerWheel',
   );
 }

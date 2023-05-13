@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 
 abstract class SpinnerWheelRepository {
   Future<User?> signIn(String email, String password);

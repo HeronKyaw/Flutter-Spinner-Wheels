@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gap/gap.dart';
 import 'package:spinner_wheel/data/repositories/spinner_wheels_repository.dart';
 import 'package:spinner_wheel/main.dart';
 import 'package:spinner_wheel/bloc/login/login_bloc.dart';
@@ -102,7 +103,7 @@ class LoginViewState extends State<LoginView> {
                       );
                     }else {
                       return Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           const SizedBox(height: 64),
                           const Text(
@@ -120,38 +121,21 @@ class LoginViewState extends State<LoginView> {
                               color: Color.fromRGBO(153, 158, 161, 1)
                             ),
                           ),
-                          const SizedBox(height: 46),
+                          const Gap(46),
                           LoginTextField(
                             title: 'Email',
                             hintText: 'Please enter your email',
                             controller: _userNameController,
                             obscure: false,
                           ),
-                          const SizedBox(height: 10,),
+                          const Gap(15),
                           LoginTextField(
                             title: 'Password',
                             hintText: 'Enter Password',
                             controller: _passwordController,
                             obscure: true,
                           ),
-
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Checkbox(
-                                value: isChecked,
-                                onChanged: (checkedValue) {
-                                  context.read<LoginBloc>().add(RememberMeButtonChecked(isChecked: isChecked));
-                                },
-                              ),
-                              TextButton(
-                                onPressed: () {
-                                  // TODO: Implement forgot password functionality
-                                },
-                                child: const Text('Forgot password?'),
-                              ),
-                            ],
-                          ),
+                          const Gap(20),
                           ElevatedButton(
                             onPressed: () async{
                               showDialog(
@@ -169,13 +153,17 @@ class LoginViewState extends State<LoginView> {
                               // remove circular animation cuz Navigator.of(context).pop() does not work.
                               navigatorKey.currentState!.popUntil((route) => route.isFirst);
                             },
-                            child: const Text('Sign in'),
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              // TODO: Implement sign-up functionality
-                            },
-                            child: const Text('Don\'t have an account? Sign up'),
+                            style: ButtonStyle(
+                              textStyle: MaterialStateProperty.all<TextStyle>(const TextStyle(fontSize: 16)),
+                              padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.all(15)),
+                              backgroundColor: MaterialStateProperty.all<Color>(const Color.fromRGBO(78, 1, 137, 1)),
+                              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                )
+                              )
+                            ),
+                            child: const Text('Login'),
                           ),
                         ],
                       );
