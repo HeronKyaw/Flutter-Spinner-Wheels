@@ -67,19 +67,11 @@ class LoginViewState extends State<LoginView> {
           }
         },
         builder: (context, state) {
-          return SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: StreamBuilder<User?>(
+          return StreamBuilder<User?>(
                   stream: FirebaseAuth.instance.authStateChanges(),
                   builder: (_, snapshot) {
                     if (snapshot.hasData) {  
-                      // Navigator.of(context).push(
-                      //   MaterialPageRoute(
-                      //     builder: (context) => const HomePage(),
-                      //   ),
-                      // );
-                      return Container();
+                      return const HomePage();              
                     } else if (snapshot.connectionState == ConnectionState.waiting) {
                       return const Center(
                         child: CircularProgressIndicator(),
@@ -156,9 +148,7 @@ class LoginViewState extends State<LoginView> {
                       );
                     }
                   }
-                ),
-              ),
-            );
+                );
         },
       ),
     );
