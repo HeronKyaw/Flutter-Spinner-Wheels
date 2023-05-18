@@ -24,10 +24,7 @@ class DefaultFirebaseOptions {
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for android - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return android;
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
@@ -51,6 +48,14 @@ class DefaultFirebaseOptions {
         );
     }
   }
+
+  static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'AIzaSyDSSmdAUnCqdqO1dHfbnoxVgPbwl2WbcdI',
+    appId: '1:357598369090:android:378076b3814f52b5dda4db',
+    messagingSenderId: '357598369090',
+    projectId: 'flutter-spinner-wheels',
+    storageBucket: 'flutter-spinner-wheels.appspot.com',
+  );
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyDxjhDJg6LXyupk_KOpClYRU09qNHjFVSA',

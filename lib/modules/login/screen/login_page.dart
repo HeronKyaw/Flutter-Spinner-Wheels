@@ -4,7 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:spinner_wheel/data/repositories/spinner_wheels_repository.dart';
 import 'package:spinner_wheel/main.dart';
-import 'package:spinner_wheel/bloc/login/login_bloc.dart';
+import 'package:spinner_wheel/modules/home/screen/home_page.dart';
+import 'package:spinner_wheel/modules/login/login_bloc/login_bloc.dart';
 import 'package:spinner_wheel/widgets/text_field_widget.dart';
 
 class LoginPage extends StatelessWidget {
@@ -73,26 +74,12 @@ class LoginViewState extends State<LoginView> {
                   stream: FirebaseAuth.instance.authStateChanges(),
                   builder: (_, snapshot) {
                     if (snapshot.hasData) {  
-                      return Center(
-                        child: Column(
-                          children: [
-                            Text(
-                              'You are logged in as ${snapshot.data!.email}',
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(fontSize: 16),
-                            ),
-                            const SizedBox(height: 16),
-                            ElevatedButton(
-                              onPressed: () {
-                                context.read<LoginBloc>().add(
-                                  const LogoutButtonPressed(),
-                                );
-                              },
-                              child: const Text('Logout'),
-                            ),
-                          ],
-                        ),
-                      );               
+                      // Navigator.of(context).push(
+                      //   MaterialPageRoute(
+                      //     builder: (context) => const HomePage(),
+                      //   ),
+                      // );
+                      return Container();
                     } else if (snapshot.connectionState == ConnectionState.waiting) {
                       return const Center(
                         child: CircularProgressIndicator(),
