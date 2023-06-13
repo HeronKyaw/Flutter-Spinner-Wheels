@@ -25,7 +25,10 @@ class MyApp extends StatelessWidget {
       navigatorKey: navigatorKey,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: const Color.fromRGBO(78, 1, 137, 1),
+        appBarTheme:  const AppBarTheme(
+          backgroundColor: Color.fromRGBO(78, 1, 137, 1),
+        )
       ),
       home: BlocProvider(
           create: (context) => LoginBloc(SpinnerWheelRepositoryImpl()),

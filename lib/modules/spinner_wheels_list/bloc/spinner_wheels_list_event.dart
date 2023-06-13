@@ -6,3 +6,12 @@ abstract class SpinnerWheelsListEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class AddNewWheel extends SpinnerWheelsListEvent {
+  const AddNewWheel();
+}
+
+class ClickWheel extends SpinnerWheelsListEvent {
+  const ClickWheel();
+}
+

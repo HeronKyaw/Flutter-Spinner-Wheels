@@ -1,8 +1,8 @@
 class SpinnerWheel {
-  String id;
-  String userId;
+  int id;
+  int userId;
   String title;
-  List<String> items;
+  List<String>? items;
 
   SpinnerWheel({
     required this.id,
