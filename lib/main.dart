@@ -28,7 +28,10 @@ class MyApp extends StatelessWidget {
         primaryColor: const Color.fromRGBO(78, 1, 137, 1),
         appBarTheme:  const AppBarTheme(
           backgroundColor: Color.fromRGBO(78, 1, 137, 1),
-        )
+        ),
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: Color.fromRGBO(78, 1, 137, 1),
+        ),
       ),
       home: BlocProvider(
           create: (context) => LoginBloc(SpinnerWheelRepositoryImpl()),
